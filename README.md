@@ -57,13 +57,51 @@ Data columns (total 26 columns):
 | 24  | long          | 420331 non-null   | float64  |
 | 25  | posting_date  | 426812 non-null   | object   |
 
-dtypes: float64(5), int64(2), object(19)
+dtypes: float64(5), int64(2), object(19)  
+```python
+df.drop(columns=['id', 'url', 'region', 'region_url', 'VIN', 'size', 'image_url', 'description', 'county', 'state', 'lat', 'long', 'posting_date', 'model', 'cylinders'], inplace=True) # Удаляем стобцы с неинтересующими нас данными
+  ```
+```python
+df.isna().sum()  # Смотрим в скольких ячейках в каждом столбце у нас null значения
+  ```
+
+| Column        | Zero Count    |
+|---------------|----------------|
+| price         | 0              |
+| year          | 1205           |
+| manufacturer  | 17646          |
+| model         | 5277           |
+| condition     | 174104         |
+| fuel          | 3013           |
+| odometer      | 4400           |
+| title_status  | 8242           |
+| transmission  | 2556           |
+| drive         | 130567         |
+| type          | 92858          |
+| paint_color   | 130203         |
 
 
+```python
+df = df.dropna()  # Удаляем строки с null значениями
+  ```
 
+На данный момент наш датасет выглядит так:
 
+|  | Price | Year   | Manufacturer      | Model                       | Condition | Fuel | Odometer  | Title Status | Transmission | Drive | Type   | Paint Color |
+|--------|-------|--------|-------------------|-----------------------------|-----------|------|-----------|--------------|--------------|-------|--------|-------------|
+| 31     | 15000 | 2013.0 | ford              | f-150 xlt                 | excellent | gas  | 128000.0  | clean        | automatic     | rwd   | truck  | black       |
+| 32     | 27990 | 2012.0 | gmc               | sierra 2500 hd extended cab | good      | gas  | 68696.0   | clean        | other         | 4wd   | pickup | black       |
+| 33     | 34590 | 2016.0 | chevrolet         | silverado 1500 double      | good      | gas  | 29499.0   | clean        | other         | 4wd   | pickup | silver      |
+| 34     | 35000 | 2019.0 | toyota           | tacoma                     | excellent | gas  | 43000.0   | clean        | automatic     | 4wd   | truck  | grey        |
+| 35     | 29990 | 2016.0 | chevrolet         | colorado extended cab       | good      | gas  | 17302.0   | clean        | other         | 4wd   | pickup | red         |
+| ...     | ... | ... | ...         | ...       | ...     | ...  | ...   | ...        | ...         | ...   | ... | ...         |
+| 426872 | 32590 | 2020.0 | mercedes-benz     | c-class c 300              | good      | gas  | 19059.0   | clean        | other         | rwd   | sedan  | white       |
+| 426873 | 30990 | 2018.0 | mercedes-benz     | glc 300 sport              | good      | gas  | 15080.0   | clean        | automatic     | rwd   | other  | white       |
+| 426874 | 33590 | 2018.0 | lexus            | gs 350 sedan 4d            | good      | gas  | 30814.0   | clean        | automatic     | rwd   | sedan  | white       |
+| 426876 | 30590 | 2020.0 | volvo            | s60 t5 momentum sedan 4d    | good      | gas  | 12029.0   | clean        | other         | fwd   | sedan  | red         |
+| 426878 | 28990 | 2018.0 | lexus            | es 350 sedan 4d            | good      | gas  | 30112.0   | clean        | other         | fwd   | sedan  | silver      |
 
-
+142117 rows × 12 columns
 
 
 
