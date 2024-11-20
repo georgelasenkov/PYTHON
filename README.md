@@ -203,6 +203,41 @@ profile
 df = df.loc[df['price'] > 200]
   ```
 Снова создадим отчет и посмотрим всю имеющуюся информацию о датафрейме
+#### <h3 align="center">``` ОБЩАЯ ИНФОРМАЦИЯ О ТАБЛИЦЕ И ПО СТОЛБЦУ С ЦЕНОЙ ```</h3>  
+<h3 align="center"><img src="https://github.com/georgelasenkov/PYTHON/blob/main/overview_price.png"></h3>  
+
+#### <h3 align="center">``` ГОД ```</h3> 
+<h3 align="center"><img src="https://github.com/georgelasenkov/PYTHON/blob/main/year.png"></h3>  
+
+#### <h3 align="center">``` ПРОИЗВОДИТЕЛЬ/СОСТОЯНИЕ/ТОПЛИВО/ОДОМЕТР ```</h3> 
+<h3 align="center"><img src="https://github.com/georgelasenkov/PYTHON/blob/main/man_cond_fuel_odom.png"></h3>
+
+
+
+
+
+
+&nbsp;
+
+
+
+#### <h3 align="center">``` WORK IN PROGRESS ```</h3> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
