@@ -8,6 +8,8 @@
 pip install ydata-profiling 
 from ydata_profiling import ProfileReport # Сделает подробный отчет о датасете за нас
 import pandas as pd
+import numpy as np
+import plotly.express as px
 import kagglehub
 path = kagglehub.dataset_download("austinreese/craigslist-carstrucks-data")
 print("Path to dataset files:", path)
@@ -59,7 +61,8 @@ Data columns (total 26 columns):
 
 dtypes: float64(5), int64(2), object(19)  
 ```python
-df.drop(columns=['id', 'url', 'region', 'region_url', 'VIN', 'size', 'image_url', 'description', 'county', 'state', 'lat', 'long', 'posting_date', 'model', 'cylinders'], inplace=True) # Удаляем стобцы с неинтересующими нас данными
+# Удаляем стобцы с неинтересующими нас данными
+df.drop(columns=['id', 'url', 'region', 'region_url', 'VIN', 'size', 'image_url', 'description', 'county', 'state', 'lat', 'long', 'posting_date', 'model', 'cylinders'], inplace=True)
   ```
 ```python
 df.isna().sum()  # Смотрим в скольких ячейках в каждом столбце у нас null значения
@@ -103,10 +106,30 @@ df = df.dropna()  # Удаляем строки с null значениями
 
 142117 rows × 12 columns
 
+```python
+df.duplicated().sum()  # Поиск дубликатов
+  ```
+53055 дубликатов
 
+```python
+df = df.drop_duplicates()  # Удаляем дубликаты
+  ```
 
+```python
+# Определим столбцы с числовыми типами переменных
+# Используя plotly, построим боксплоты для столбцов с числовыми типами переменных, чтобы найти выбросы
+df_num_col = df.select_dtypes(include = [np.number])
+for i in df_num_col:
+    fig = px.box(df, x = df[i])
+    fig.update_traces()
+    fig.show()
+  ```
 
+FOTKI
 
+Инсайты:  
+- Цены свыше 36000 - выбросы (особенно цены в 1.1111111 млрд и 3.7 млрд 😆)
+- 
 
 
 
